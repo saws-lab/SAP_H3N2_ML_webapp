@@ -54,7 +54,7 @@ st.write("""
 # Select and load trained model and encoder
 ###########################################
 
-test_seasons = [str(year)+s for year in range (2017, 2021) for s in ['NH', 'SH']] + ['2021NH']
+test_seasons = [str(year)+s for year in range (2018, 2021) for s in ['NH', 'SH']] + ['2021NH']
 
 select_season = st.sidebar.selectbox('Select the influenza season of your test virus isolates',
                                      test_seasons,

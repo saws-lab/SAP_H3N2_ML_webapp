@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Streamlit-based web-app for seasonal antigenic prediction (SAP) of IAV H3N2
-using proposed AdaBoost model trained on data from 2003NH to 2020SH
+Streamlit-based web application for seasonal antigenic prediction (SAP) of IAV H3N2
+using proposed AdaBoost model
+
+Shah et. al., "Seasonal antigenic prediction of influenza A H3N2 using machine
+learning", Nature communications.
 
 @author: Awais
 """
@@ -51,19 +54,21 @@ st.write("""
 # Select and load trained model and encoder
 ###########################################
 
+test_seasons = [str(year)+s for year in range (2017, 2021) for s in ['NH', 'SH']] + ['2021NH']
+
 select_season = st.sidebar.selectbox('Select the influenza season of your test virus isolates',
-                                     ('2020SH', '2021NH'),
-                                     index=1
+                                     test_seasons,
+                                     index=len(test_seasons)-1
                                      )
 
-if select_season == '2020SH':
-    model_fn   = "trained_model/SAP_H3N2_AdaBoost_model_trained_2003NH_2020NH.joblib"
-    encoder_fn = "trained_model/SAP_H3N2_OneHotEncoder_trained_2003NH_2020NH.joblib"
+# as per selected season, find the training end season
+# i.e., previous season than the selected season
+train_end_season_ind = test_seasons.index(select_season) - 1
+train_end_season = test_seasons[train_end_season_ind]
 
-elif select_season == '2021NH':
-    model_fn   = "trained_model/SAP_H3N2_AdaBoost_model_trained_2003NH_2020SH.joblib"
-    encoder_fn = "trained_model/SAP_H3N2_OneHotEncoder_trained_2003NH_2020SH.joblib"
-    
+# load the model and encoder as per the train end season
+model_fn   = f"trained_model/SAP_H3N2_AdaBoost_model_trained_2003NH_{train_end_season}.joblib"
+encoder_fn = f"trained_model/SAP_H3N2_OneHotEncoder_trained_2003NH_{train_end_season}.joblib"
 
 model   = joblib.load(model_fn)
 encoder = joblib.load(encoder_fn)

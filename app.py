@@ -34,18 +34,6 @@ meta_features = [
 
 
 #%%
-################################
-# Load trained model and encoder
-################################
-model_fn = "trained_model/SAP_H3N2_AdaBoost_model_trained_2003NH_2020SH.joblib"
-model    = joblib.load(model_fn)
-
-encoder_fn = "trained_model/SAP_H3N2_OneHotEncoder_trained_2003NH_2020SH.joblib"
-encoder    = joblib.load(encoder_fn)
-
-
-
-#%%
 #######################
 # Title and information
 #######################
@@ -57,7 +45,36 @@ st.write("""
          metadata information.
          ***
          """)
+
+
+#%%
+###########################################
+# Select and load trained model and encoder
+###########################################
+
+select_season = st.sidebar.selectbox('Select the influenza season of your test virus isolates',
+                                     ('2020SH', '2021NH'),
+                                     index=1
+                                     )
+
+if select_season == '2020SH':
+    model_fn   = "trained_model/SAP_H3N2_AdaBoost_model_trained_2003NH_2020NH.joblib"
+    encoder_fn = "trained_model/SAP_H3N2_OneHotEncoder_trained_2003NH_2020NH.joblib"
+
+elif select_season == '2021NH':
+    model_fn   = "trained_model/SAP_H3N2_AdaBoost_model_trained_2003NH_2020SH.joblib"
+    encoder_fn = "trained_model/SAP_H3N2_OneHotEncoder_trained_2003NH_2020SH.joblib"
     
+
+model   = joblib.load(model_fn)
+encoder = joblib.load(encoder_fn)
+
+
+st.sidebar.write("""
+                 ***
+                 """)
+
+
 
 #%%
 #######################################

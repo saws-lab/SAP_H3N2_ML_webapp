@@ -42,9 +42,8 @@ meta_features = [
 #######################
 st.title('Seasonal antigenic prediction of influenza A virus (IAV) H3N2')
 st.write("""
-         Using our proposed AdaBoost model, predict the NHT-based antigenic difference
-         between virus-antiserum pairs using their HA1 sequences and (optional)
-         metadata information.
+         Predict the NHT-based antigenic difference between virus-antiserum
+         pairs using their HA1 sequences and (optional) metadata information.
          ***
          """)
 

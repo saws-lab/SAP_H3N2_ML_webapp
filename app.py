@@ -46,6 +46,8 @@ st.write("""
          pairs using their HA1 sequences and (optional) metadata information.
          ***
          """)
+st.subheader("1 - Select season from left sidebar")
+st.subheader("2 - Select input type from left sidebar")
 
 
 #%%

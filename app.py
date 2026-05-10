@@ -46,6 +46,7 @@ st.write("""
          pairs using their HA1 sequences and (optional) metadata information.
          ***
          """)
+st.header("Workflow")
 st.subheader("""
         1 - Select season from left sidebar
         2 - Select input type from left sidebar

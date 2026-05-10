@@ -47,8 +47,8 @@ st.write("""
          ***
          """)
 st.header("Workflow")
-st.subsubheader("1 - Select season from left sidebar")
-st.subsubheader("2 - Select input type from left sidebar")
+st.subheader("1 - Select season from left sidebar")
+st.subheader("2 - Select input type from left sidebar")
 st.write("***")
 
 

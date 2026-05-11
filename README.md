@@ -1,6 +1,7 @@
 ---
 title: SAP H3N2
 sdk: streamlit
+sdk_version: 1.27.2
 python_version: 3.8.12
 app_file: app.py
 ---

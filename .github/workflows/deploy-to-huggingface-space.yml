@@ -1,0 +1,43 @@
+name: Deploy to Hugging Face Space
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hf-space
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Configure Hugging Face remote
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          if [ -z "$HF_TOKEN" ]; then
+            echo "HF_TOKEN secret is not set."
+            exit 1
+          fi
+          git remote remove hf || true
+          git remote add hf "https://sawshah:${HF_TOKEN}@huggingface.co/spaces/sawshah/SAP_H3N2"
+
+      - name: Push branch to Space
+        run: git push hf main --force
+
+      - name: Push Git LFS objects
+        run: git lfs push hf --all

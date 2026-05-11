@@ -21,7 +21,8 @@ This repository provides an interactive interface to predict normalized hemagglu
 
 - Paper: [Shah et al., *Seasonal antigenic prediction of influenza A H3N2 using machine learning* (Nature Communications, 2024)](https://doi.org/10.1038/s41467-024-47862-9)
 - Upstream research/code repository: [saws-lab/SAP_H3N2_ML](https://github.com/saws-lab/SAP_H3N2_ML)
-- Live Space: [huggingface.co/spaces/sawshah/SAP_H3N2](https://huggingface.co/spaces/sawshah/SAP_H3N2)
+- Live app (Streamlit Community Cloud): [sap-h3n2-ml.streamlit.app](https://sap-h3n2-ml.streamlit.app/)
+- Live app (Hugging Face Space): [huggingface.co/spaces/sawshah/SAP_H3N2](https://huggingface.co/spaces/sawshah/SAP_H3N2)
 
 ## What this webapp does
 
@@ -146,6 +147,7 @@ Then open the local URL shown in your terminal (typically `http://localhost:8501
 ## Notes
 
 - This repo is the deployment-focused webapp companion to the main SAP_H3N2_ML research repo.
+- The app is currently available on both Streamlit Community Cloud and Hugging Face Spaces.
 - If you use GitHub Actions deployment to Hugging Face Space, configure secret `HF_TOKEN` in GitHub.
 
 ## Troubleshooting

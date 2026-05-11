@@ -1,14 +1,8 @@
 ---
 title: SAP H3N2
-emoji: 👁
-colorFrom: red
-colorTo: indigo
 sdk: streamlit
-sdk_version: 1.27.2
 python_version: 3.8.12
 app_file: app.py
-pinned: false
-license: gpl-3.0
 ---
 
 # SAP_H3N2_ML Web Application

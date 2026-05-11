@@ -12,6 +12,12 @@ Streamlit web application for seasonal antigenic prediction of influenza A virus
 
 This repository provides an interactive interface to predict normalized hemagglutination titer (NHT)-based antigenic differences between virus–antiserum pairs using HA1 amino-acid sequences and optional metadata.
 
+## Screenshot
+
+<p align="center">
+  <img src="assets/screenshots/sap_h3n2_webapp.png" alt="SAP_H3N2_ML web app" width="900">
+</p>
+
 ## Related research and upstream repository
 
 - Paper: [Shah et al., *Seasonal antigenic prediction of influenza A H3N2 using machine learning* (Nature Communications, 2024)](https://doi.org/10.1038/s41467-024-47862-9)
